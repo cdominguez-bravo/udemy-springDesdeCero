@@ -16,7 +16,15 @@ public class VideoJuegoService {
     }
 
     public List<Videojuego> buscarDestacados(){
-        return videoJuegoRepository.findAll();
+        return videoJuegoRepository.buscarTodos();
+    }
+
+    public List<Videojuego> buscarPorDistribuidor(int distribuidorId){
+        return videoJuegoRepository.buscarPorDistribuidor(distribuidorId);
+    }
+
+    public List<Videojuego> buscar(String consulta){
+        return videoJuegoRepository.findByNombreContaining(consulta);
     }
 
 

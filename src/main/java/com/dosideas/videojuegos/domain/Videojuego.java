@@ -1,9 +1,6 @@
 package com.dosideas.videojuegos.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Videojuego {
@@ -12,6 +9,8 @@ public class Videojuego {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
     private String nombre;
+    @ManyToOne
+    private Distribuidor distribuidor;
 
     public String getImagenUrl() {
         return imagenUrl;
@@ -19,6 +18,14 @@ public class Videojuego {
 
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
+    }
+
+    public Distribuidor getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(Distribuidor distribuidor) {
+        this.distribuidor = distribuidor;
     }
 
     private String descripcion;

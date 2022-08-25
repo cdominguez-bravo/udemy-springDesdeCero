@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Videojuego {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private String nombre;
     @ManyToOne
@@ -53,5 +53,16 @@ public class Videojuego {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Videojuego{" +
+                "Id=" + Id +
+                ", nombre='" + nombre + '\'' +
+                ", distribuidor=" + distribuidor.getId() +
+                ", descripcion='" + descripcion + '\'' +
+                ", imagenUrl='" + imagenUrl + '\'' +
+                '}';
     }
 }
